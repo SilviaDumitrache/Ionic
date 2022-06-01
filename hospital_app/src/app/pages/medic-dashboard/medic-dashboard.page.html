@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Medic Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+
+      
+
+  <form (submit)="logout()">
+
+  <!-- <ion-icon name="person"></ion-icon>
+  <h1>Welcome,<br>
+  -Username here-</h1> -->
+
+  
+        <!-- <ion-card text-center padding >
+          <ion-icon name="person"></ion-icon>
+          <h2>Profil</h2>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card text-center padding >
+          <ion-icon name="person"></ion-icon>
+          <h2>Programare</h2>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card text-center padding >
+          <ion-icon name="person"></ion-icon>
+          <h2>Instrumente</h2>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card text-center padding > 
+          <ion-icon name="person"></ion-icon>
+          <h2>Medicamente</h2>
+        </ion-card> -->
+
+        <ion-button expand="full" (click)="goPac()" ><ion-icon name="person"></ion-icon>Lista pacienti</ion-button>
+       
+        <ion-button expand="full" (click)="goChat()" ><ion-icon name="chatbubbles-outline"></ion-icon>
+          Med-chat</ion-button>
+       
+       
+        <ion-button  expand="full" type="submit" >Logout</ion-button>
+
+      
+</form>
+
+</ion-col>
+</ion-row>
+</ion-grid>
+
+</ion-content> 

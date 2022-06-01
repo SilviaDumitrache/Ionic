@@ -1,0 +1,115 @@
+<ion-content class="bg">
+  <form (ngSubmit)="register()">
+    <!-- (submit)="onSubmit()" -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+
+       
+        
+         <ion-card>
+           <ion-card-header>
+             <ion-card-title top center edge id = "tit">Inregistrare</ion-card-title>
+             <br> 
+              <!-- <ion-card-subtitle center id="tit2">Completati campurile de mai jos</ion-card-subtitle> -->
+            </ion-card-header>
+         
+          <ion-card-content >
+            <!-- name   -->
+            <div [formGroup]="regForm">
+            <ion-item color="rosybrown">
+              <ion-input type="text" color="danger" text-center style="border:none" placeholder="Nume" clearInput formControlName="name" ></ion-input> 
+            </ion-item>
+          </div>
+        
+          <div class="validation_err">          
+            <ng-container *ngFor ="let validation of validation_mess.name">
+              <div class="error-message" *ngIf="regForm.get('name').hasError(validation.type) && (regForm.get('name').dirty || regForm.get('name').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+        </div>  
+
+            <!-- email -->
+            <div [formGroup]="regForm">
+            <ion-item color="rosybrown">
+              <ion-input color="danger" type="email" text-center style="border:none" placeholder="Email" clearInput formControlName="email"></ion-input> <br>  
+            </ion-item>
+            </div>
+
+            <div class="validation_err">          
+              <ng-container *ngFor ="let validation of validation_mess.email">
+                <div class="error-message" *ngIf="regForm.get('email').hasError(validation.type) && (regForm.get('email').dirty || regForm.get('email').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+          </div>
+
+
+            <!-- username -->
+            <div [formGroup]="regForm">
+            <ion-item color="rosybrown">
+              <ion-input color="danger" type="text" text-center style="border:none" placeholder="Username" clearInput 
+              formControlName="username"></ion-input> <br>  
+            </ion-item>
+            </div>  
+
+            <div class="validation_err">          
+              <ng-container *ngFor ="let validation of validation_mess.username">
+                <div class="error-message" *ngIf="regForm.get('username').hasError(validation.type) && (regForm.get('username').dirty || regForm.get('username').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+          </div>
+
+
+            <!-- parola -->
+            <div [formGroup]="regForm">
+            <ion-item color="rosybrown">
+              <ion-input color="danger" type="password" text-center style="border:none" placeholder="Parola" clearInput formControlName="password"></ion-input> <br>  
+            </ion-item>
+            </div>
+
+            <div class="validation_err">          
+              <ng-container *ngFor ="let validation of validation_mess.password">
+                <div class="error-message" *ngIf="regForm.get('password').hasError(validation.type) && (regForm.get('password').dirty || regForm.get('password').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+          </div>
+
+            <!-- contact -->
+            <div [formGroup]="regForm">
+            <ion-item color="rosybrown">
+              <ion-input color="danger" type="number" text-center style="border:none" placeholder="Numar de telefon" clearInput formControlName="contact" ></ion-input> <br>  
+            </ion-item>
+            </div>
+
+            <div class="validation_err">          
+              <ng-container *ngFor ="let validation of validation_mess.contact">
+                <div class="error-message" *ngIf="regForm.get('contact').hasError(validation.type) && (regForm.get('contact').dirty || regForm.get('contact').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+          </div>
+
+
+            <ion-button expand="full"  type="submit" [disabled]="!regForm.valid">  
+             <ion-icon name="checkmark-outline" slot="end"></ion-icon>Register</ion-button> 
+          
+
+            <ion-button expand="full" routerLink="/" >
+              <ion-icon  name="chevron-forward-outline" slot="end"></ion-icon>Login</ion-button>
+
+            <!-- <ion-button expand="full" (click)="goRegister()" >Creaza un cont</ion-button> -->
+            
+          </ion-card-content>
+          </ion-card> 
+        
+        </ion-col> 
+        </ion-row> 
+        </ion-grid>
+
+      </form>        
+</ion-content>

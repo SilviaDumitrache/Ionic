@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>medicamente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <list [listItems]="medicamente" [ModAdm]="modAdm"> </list>
+
+    <ion-card>
+      <ion-card-header> 
+        <ion-card-title >Lista medicamenete</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+
+
+    <ion-button (click)="back()" > 
+      <ion-icon name="arrow-undo-sharp" class="back"></ion-icon>
+    </ion-button>
+
+
+</ion-content>
