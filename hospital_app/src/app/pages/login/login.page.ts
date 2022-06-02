@@ -14,17 +14,14 @@ export class LoginPage implements OnInit {
 
   credForm: FormGroup;
 
-  credentials : TokenPayload = {
+  credentials: TokenPayload = {
     id: 0,
     name: '',
-    username:'',
-    email:'',
-    password:'',
-    contact:''    
+    username: '',
+    email: '',
+    password: '',
+    contact: ''
   };
-
-
-  
   constructor(private auth: AuthenticationService,
               private router: Router,
               private readonly formBuilder: FormBuilder
@@ -34,18 +31,17 @@ export class LoginPage implements OnInit {
     this.credForm = this.formBuilder.group ({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
-    
     });
   }
 
-  validation_mess={
+  Validation_mess = {
     'username': [
       { type: 'required', message: 'Introduceti username!'}
     ],
     'password': [
       { type: 'required', message: 'Introduceti parola!'}
     ]
-  }
+  };
 
   // functia asta 'cheama' authentication service
   // signIn() {
@@ -60,35 +56,33 @@ export class LoginPage implements OnInit {
   //     else if (role == 'PACIENT') {
   //       this.router.navigateByUrl('/pacient-dashboard');
   //     }
-     
   //   })
   // }
 
-//funtia care ma duce pe pagina de resetare a parolei
-  goForgot(){
-    this.router.navigate(['pacient-prog'])
+// funtia care ma duce pe pagina de resetare a parolei
+  goForgot() {
+    this.router.navigate(['pacient-prog']);
   }
- 
-  //onSubmit()
 
-  login(){
+  // onSubmit()
+
+  login() {
     this.auth.login(this.credForm.value).subscribe(
       () => {
-        this.router.navigateByUrl('/pacient-dashboard')
+        this.router.navigateByUrl('/pacient-dashboard');
       },
       err => {
-        console.error('Nu s-a facut login')
-      })}  
+        console.error('Nu s-a facut login');
+      }); }
 
-register(){
-  this.router.navigateByUrl('/register')
+register() {
+  this.router.navigateByUrl('/register');
   // this.auth.register(this.credentials).subscribe(res => {
   //   this.auth.login(this.credForm.value).subscribe()
   // });
 }
- 
-logMed(){
-  this.router.navigateByUrl('/login-med')
+logMed() {
+  this.router.navigateByUrl('/login-med');
 }
 
 }
