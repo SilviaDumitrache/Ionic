@@ -4,6 +4,11 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { user } from '@angular/fire/auth';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
+
+
 
 @Component({
   selector: 'app-home',
@@ -12,13 +17,15 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 })
 export class HomePage {
   profile = null;
+  credentials: FormGroup;
 
   constructor(
     private profilepicService: ProfilepicService,
     private authService: AuthService,
     private router: Router,
     private loadingController: LoadingController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private firestore: Firestore,
 
   ) {
     this.profilepicService.getUserProfile().subscribe((data) => {
@@ -60,4 +67,17 @@ export class HomePage {
     }
   }
 
-}
+  goSmartMed(){
+  }
+
+  goProgramare(){
+  }
+
+  goChat(){}
+
+  goProfilMed(){}
+
+  goProfil(){}
+
+  }
+

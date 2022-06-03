@@ -31,4 +31,12 @@ export class AuthService {
   logout() {
     return signOut(this.auth);
   }
+
+  //function to change the password
+  // async changePass(email) {
+  //   try {
+  //   } catch (e){
+  //     return null;
+  //   }
+  // }
 }
