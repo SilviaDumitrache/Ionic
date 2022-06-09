@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import { NavController } from '@ionic/angular';
+
 
 
 @Component({
@@ -12,13 +14,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage implements OnInit {
   credentials: FormGroup;
+  validators: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private navCtrl: NavController,
 
   ) { }
 
@@ -37,18 +41,18 @@ export class LoginPage implements OnInit {
     });
   }
 
-  async register() {
-    const loading = await this.loadingController.create();
-    await loading.present();
-    const user = await this.authService.register(this.credentials.value);
-    await loading.dismiss();
+  // async register() {
+  //   const loading = await this.loadingController.create();
+  //   await loading.present();
+  //   const user = await this.authService.register(this.credentials.value);
+  //   await loading.dismiss();
 
-  if (user) {
-    this.router.navigateByUrl('/home', {replaceUrl: true});
-  }  else {
-    this.showAlert('Crearea unui nou cont a esuat.', 'Va rugam, incercati din nou.');
-  }
-  }
+  // if (user) {
+  //   this.router.navigateByUrl('/home', {replaceUrl: true});
+  // }  else {
+  //   this.showAlert('Crearea unui nou cont a esuat.', 'Va rugam, incercati din nou.');
+  // }
+  // }
 
   async login() {
     const loading = await this.loadingController.create();
@@ -70,5 +74,9 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+
+  goToRegisterPage() {
+    this.router.navigateByUrl('/register');
+  };
 
 }

@@ -39,4 +39,8 @@ export class AuthService {
   //     return null;
   //   }
   // }
+
+  userDetails() {
+    return this.auth.currentUser;
+  }
 }
