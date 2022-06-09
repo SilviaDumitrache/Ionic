@@ -31,4 +31,19 @@ export class AuthService {
   logout() {
     return signOut(this.auth);
   }
+<<<<<<< HEAD
+
+  //function to change the password
+  // async changePass(email) {
+  //   try {
+  //   } catch (e){
+  //     return null;
+  //   }
+  // }
+
+  userDetails() {
+    return this.auth.currentUser;
+  }
+=======
+>>>>>>> parent of d4d2394 (preliminary edits for Dashboard page (html & css))
 }
