@@ -75,8 +75,12 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  goToRegisterPage() {
+  async goToRegisterPage() {
     this.router.navigateByUrl('/register');
+  };
+
+  async goToForgotPage() {
+    this.router.navigateByUrl('/forgot');
   };
 
 }

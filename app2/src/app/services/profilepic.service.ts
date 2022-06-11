@@ -14,7 +14,7 @@ export class ProfilepicService {
   constructor(
     private auth: Auth,
     private firestore: Firestore,
-    private storage: Storage
+    private storage: Storage,
   ) { }
 
   getUserProfile() {

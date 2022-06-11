@@ -1,17 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="rosybrown">
     <ion-buttons>
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>
+    <ion-title class="title">
       Dashboard
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="bg">
   <div class="preview">
     <ion-avatar (click)="changeImage()">
       <img alt="profile-pic" *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" class="image-responsive"/>
@@ -24,4 +24,65 @@
       </ng-template>
     </ion-avatar>
   </div>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6" >
+        <ion-card text-center padding (click)="goProfil()">
+          <ion-card-title>Informatii personale</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="person" class="icon1"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" >
+        <ion-card text-center padding (click)="goProfilMed()">
+          <ion-card-title>Informatii medicale</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="medical-sharp"  class="icon4"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card text-center padding (click)="goChat()">
+          <ion-card-title>Med-Chat</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="fitness-sharp" class="icon4"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card text-center padding (click)="goProgramare()">
+          <ion-card-title>Programare </ion-card-title>
+          <ion-card-content>
+            <ion-icon name="calendar" class="icon2"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card text-center padding (click)="goSmartMed()">
+          <ion-card-title>SmartMed</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="pulse" class="icon3"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card text-center padding >
+          <ion-card-title>SmartHome</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="home-sharp" class="icon3"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

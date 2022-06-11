@@ -60,4 +60,23 @@ export class HomePage {
     }
   }
 
+  goSmartMed(){
+
+  }
+
+  goProgramare(){
+
+  }
+
+  goChat(){
+
+  }
+
+  goProfilMed(){
+  }
+
+  goProfil(){
+
+  }
+
 }
