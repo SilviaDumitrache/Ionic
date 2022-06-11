@@ -1,11 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Cont nou</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="rosybrown">
+    <ion-buttons>
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="title">Cont nou</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form (ngSubmit)="register()">
+  <form [formGroup]="credentials" (ngSubmit)="register()">
     <!-- <ion-item lines="full">
       <ion-label>Nume</ion-label>
       <ion-input formControlName="lastName" type="text" required></ion-input>
@@ -19,18 +24,18 @@
     </ion-item> -->
 
     <ion-item lines="full">
-      <ion-label>Email</ion-label>
-      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
       <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email invalid.</ion-note>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label>Parola</ion-label>
-      <ion-input type="password" placeholder="Parola" formControlName="password"></ion-input>
+      <ion-label position="floating">Parola</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Parola trebuie sa aiba cel putin 6 caractere.</ion-note>
     </ion-item>
 
     <!-- <ion-button expand="full" type="submit" [disabled]="!credentials.valid">Login</ion-button> -->
-    <ion-button expand="full" type="button" (click)="register()">Cont nou</ion-button>
+    <ion-button expand="block" type="submit" (click)="register()">Cont nou</ion-button>
     </form>
 </ion-content>

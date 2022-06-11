@@ -75,8 +75,8 @@ export class HomePage {
   goProfilMed(){
   }
 
-  goProfil(){
-
-  }
+  // goProfil(){
+  //   this.router.navigateByUrl('profil');
+  // }
 
 }

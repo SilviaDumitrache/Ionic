@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>forgot</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="rosybrown">
+    <ion-buttons>
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Resetare parola</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <!-- <ion-note class="sma">
+    Introduceti adresa de email folosita la crearea contului. Daca aceasta adresa este coresta, veti primi un email pentru resetarea parolei.
+  </ion-note> -->
+  <form [formGroup]="credentials" >
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" required formControlName="email"></ion-input>
+      <!-- <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email invalid.</ion-note> -->
+    </ion-item>
+
+    <!-- <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="rosybrown" expand="block">Resetare</ion-button>
+      </ion-col>
+    </ion-row> -->
+
+
+  </form>
+  <ion-button type="submit" expand="block">Resetare</ion-button>
+  <small>
+    Introduceti adresa de email folosita la crearea contului.
+    Daca aceasta adresa este coresta, veti primi un email pentru resetarea parolei.
+  </small>
 </ion-content>

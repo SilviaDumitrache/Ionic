@@ -11,6 +11,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
   credentials: FormGroup;
+  validators: FormGroup;
   // credentials: Payload = {
   //   id: 0,
   //   name: '',
@@ -19,12 +20,11 @@ export class RegisterPage implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private fg: FormGroup,
-    private fc: FormControl,
     private loadingController: LoadingController,
     private alertController: AlertController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+
   ) { }
 
   get email() {
@@ -63,8 +63,11 @@ export class RegisterPage implements OnInit {
 
   if (user) {
     // this.router.navigateByUrl('/home', {replaceUrl: true});
-    this.showAlert('Acest utilizator exista deja', 'Mergeti la pagina de logare');
+    // this.showAlert('Cont creat cu success', 'Mergeti la pagina de logare');
+    this.router.navigateByUrl('/login', {replaceUrl: true});
+    this.showAlert('Cont creat cu success', 'Mergeti la pagina de logare');
   }  else {
+    //comment and un-comment for presentation
     this.showAlert('Crearea unui nou cont a esuat.', 'Va rugam, incercati din nou.');
   }
   }
@@ -78,6 +81,8 @@ export class RegisterPage implements OnInit {
     await alert.present();
   }
 
-
+  goBack() {
+    this.router.navigateByUrl('/login');
+  };
 
 }

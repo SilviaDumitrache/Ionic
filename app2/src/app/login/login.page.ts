@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
     private alertController: AlertController,
     private authService: AuthService,
     private router: Router,
-    private navCtrl: NavController,
+
 
   ) { }
 
