@@ -11,15 +11,12 @@
 
 <ion-content>
 
-  <!-- <ion-note class="sma">
-    Introduceti adresa de email folosita la crearea contului. Daca aceasta adresa este coresta, veti primi un email pentru resetarea parolei.
-  </ion-note> -->
-  <form [formGroup]="credentials" >
+  <!-- <form [formGroup]="credentials" (ngSubmit)="recoverPass()">
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" required formControlName="email"></ion-input>
+      <ion-input type="email" required formControlName="email"></ion-input> -->
       <!-- <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email invalid.</ion-note> -->
-    </ion-item>
+    <!-- </ion-item> -->
 
     <!-- <ion-row>
       <ion-col>
@@ -28,8 +25,18 @@
     </ion-row> -->
 
 
+  <form [formGroup]="cred" (ngSubmit)="reset()">
+    <div>
+      <ion-item>
+        <ion-input formControlName="email" name="email" type="email" placeholder="exemplu@email.com"></ion-input>
+      </ion-item>
+    </div>
+
+    <div style="text-align: center; margin:auto;">
+      <ion-button type="submit" expand="block" [disabled]="cred.invalid">Resetare</ion-button>
+    </div>
   </form>
-  <ion-button type="submit" expand="block">Resetare</ion-button>
+
   <small>
     Introduceti adresa de email folosita la crearea contului.
     Daca aceasta adresa este coresta, veti primi un email pentru resetarea parolei.

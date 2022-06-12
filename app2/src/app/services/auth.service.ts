@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { error } from 'console';
-import { sendPasswordResetEmail, signInWithEmailAndPassword, signOut, getAuth } from 'firebase/auth';
+import { sendPasswordResetEmail, signInWithEmailAndPassword, signOut, getAuth, ActionCodeSettings } from 'firebase/auth';
+// import * as firebase from 'firebase';
 
 
 @Injectable({
@@ -29,6 +30,16 @@ export class AuthService {
     }
   };
 
+  async reset({email}) {
+      try {
+        const user = await sendPasswordResetEmail(this.auth, email);
+        return user;
+      } catch (e) {
+        return null;
+      }
+    };
+
+
   //function to sign out from the application
   logout() {
     return signOut(this.auth);
@@ -48,11 +59,16 @@ export class AuthService {
   // }
 
   //reset password function
-  forgotPass(email: string) {
-    try {
-      const user = sendPasswordResetEmail(this.auth, email);
-      return user;
-    } catch (e) {
-      return null;
-    }
-}}
+  // forgotPass(email: string): Promise<void> {
+    // try {
+    //   const user = sendPasswordResetEmail(this.auth, email);
+    //   return user;
+    // } catch (e) {
+    //   return null;
+    // }
+
+    // return this.auth.sendPasswordResetEmail(email);
+
+    // return sendPasswordResetEmail(this.auth, 'user@example.com', actionCodeSettings);
+
+}
