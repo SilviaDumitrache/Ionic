@@ -23,19 +23,19 @@
       <ion-note slot="error" *ngIf="(firstName.dirty || firstName.touched) && email.errors">Campul nu poate fi gol!</ion-note>
     </ion-item> -->
 
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" formControlName="email"></ion-input>
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <!-- <ion-label position="floating">Email</ion-label> -->
+      <ion-input type="email" formControlName="email" placeholder="Email"></ion-input>
       <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email invalid.</ion-note>
     </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Parola</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <!-- <ion-label position="floating">Parola</ion-label> -->
+      <ion-input type="password" formControlName="password" placeholder="Parola"></ion-input>
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Parola trebuie sa aiba cel putin 6 caractere.</ion-note>
     </ion-item>
 
     <!-- <ion-button expand="full" type="submit" [disabled]="!credentials.valid">Login</ion-button> -->
-    <ion-button expand="block" type="submit" (click)="register()">Cont nou</ion-button>
+    <ion-button expand="block" type="submit" (click)="register()" [disabled]="!credentials.valid">Cont nou</ion-button>
     </form>
 </ion-content>

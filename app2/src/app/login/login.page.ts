@@ -61,7 +61,7 @@ export class LoginPage implements OnInit {
     await loading.dismiss();
 
   if (user) {
-    this.router.navigateByUrl('/home', {replaceUrl: true});
+    this.router.navigateByUrl('/home');
   }  else {
     this.showAlert('Logarea a esuat.', 'Va rugam, incercati din nou.');
   }}

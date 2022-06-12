@@ -1,9 +1,95 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profil</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="rosybrown">
+
+    <ion-buttons>
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+
+      <ion-title class="title">Profil</ion-title>
+
+      <ion-button fill="clear" slot="">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+    <!-- <ion-buttons>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-button fill="clear">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-buttons> -->
+
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+
+  <form>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <ion-text>Nume</ion-text>
+      </ion-label>
+      <ion-input type="text" placeholder="Nume"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Preume</ion-text>
+      </ion-label>
+      <ion-input type="text" placeholder="Prenume"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Email</ion-text>
+      </ion-label>
+      <!-- this is fetched from the DB -->
+      <!-- <ion-input name="name" type="email" placeholder="Email"></ion-input> -->
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Data nasterii</ion-text>
+      </ion-label>
+      <!-- this is fetched from the DB -->
+      <ion-input type="number" placeholder="Varsta"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Varsta</ion-text>
+      </ion-label>
+      <!-- this is fetched from the DB -->
+      <ion-input type="number" placeholder="Varsta"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Adresa</ion-text>
+      </ion-label>
+      <!-- this is fetched from the DB -->
+      <ion-input type="number" placeholder="Adresa"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <p>Locatia curenta pe <a (click)="goToGoogleMaps()">Google maps</a>
+
+    </p>
+  </ion-item>
+
+</form>
+
 
 </ion-content>
