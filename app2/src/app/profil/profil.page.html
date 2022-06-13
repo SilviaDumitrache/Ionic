@@ -34,64 +34,59 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-text class="note">Introduceti informatiile dumneavoastra:</ion-text>
+
+
+  <div class="preview">
+    <ion-avatar  (click)="changeImage()">
+      <img alt="profile-pic" *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" class="image-responsive"/>
+
+      <ng-template #placeholder_avatar>
+        <div class="fallback">
+          <p>Selectati poza</p>
+        </div>
+
+      </ng-template>
+    </ion-avatar>
+  </div>
+
   <form [formGroup]="credentials" (ngSubmit)="addData()">
-  <ion-list>
+
+
+  <!-- <ion-list> -->
+
     <ion-item >
-      <ion-label>
-        <ion-text>Nume</ion-text>
-      </ion-label>
-      <ion-input type="text" placeholder="Nume" formControlName="lastName"></ion-input>
+      <ion-label>Nume:</ion-label>
+      <ion-input type="text" formControlName="lastName"></ion-input>
+      <ion-note slot="error" *ngIf="(lastName.dirty || lastName.touched) && lastName.errors">Acest camp nu poate fi gol.</ion-note>
     </ion-item>
 
-    <!-- <ion-item (click)="updateProfile()"> -->
       <ion-item>
-       <ion-label>
-        <ion-text>Prenume</ion-text>
-      </ion-label>
-      <ion-input type="text" placeholder="Prenume" formControlName="firstName"></ion-input>
-      <!-- <a alt="firstName"></a> -->
+        <ion-label>Prenume: </ion-label>
+      <ion-input type="text" formControlName="firstName"></ion-input>
+      <ion-note slot="error" *ngIf="(firstName.dirty || firstName.touched) && firstName.errors">Acest camp nu poate fi gol.</ion-note>
     </ion-item>
 
-    <!-- <ion-item>
-      <ion-label>
-        <ion-text>Email</ion-text>
-      </ion-label> -->
-      <!-- this is fetched from the DB -->
-      <!-- <ion-input name="name" type="email" placeholder="Email"></ion-input> -->
-    <!-- </ion-item> -->
-
-    <!-- <ion-item>
-      <ion-label>
-        <ion-text>Data nasterii</ion-text>
-      </ion-label> -->
-      <!-- this is fetched from the DB -->
-      <!-- <ion-input type="number" placeholder="Varsta"></ion-input>
-    </ion-item> -->
+    <ion-item>
+      <ion-label>Varsta: </ion-label>
+      <ion-input type="text" formControlName="age"></ion-input>
+      <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Acest camp nu poate fi gol.</ion-note>
+    </ion-item>
 
     <ion-item>
-      <ion-label>
-        <ion-text>Varsta</ion-text>
-      </ion-label>
-      <!-- this is fetched from the DB -->
-      <ion-input type="text" placeholder="Varsta" formControlName="age"></ion-input>
+      <ion-label>Adresa:</ion-label>
+      <ion-input type="text" formControlName="address"></ion-input>
+      <ion-note slot="error" *ngIf="(address.dirty || address.touched) && address.errors">Acest camp nu poate fi gol.</ion-note>
     </ion-item>
 
     <ion-item>
       <ion-label>
-        <ion-text>Adresa</ion-text>
+        <ion-text>Telefon: </ion-text>
       </ion-label>
-      <!-- this is fetched from the DB -->
-      <ion-input type="text" placeholder="Adresa" formControlName="address"></ion-input>
+      <ion-input type="text" formControlName="tel"></ion-input>
+      <ion-note slot="error" *ngIf="(tel.dirty || tel.touched) && tel.errors">Acest camp nu poate fi gol.</ion-note>
     </ion-item>
 
-    <ion-item>
-      <ion-label>
-        <ion-text>Telefon</ion-text>
-      </ion-label>
-      <!-- this is fetched from the DB -->
-      <ion-input type="text" placeholder="Telefon" formControlName="tel"></ion-input>
-    </ion-item>
-  </ion-list>
 
 
 
@@ -103,7 +98,7 @@
     <p>Locatia curenta pe <a>Google maps</a></p>
   </ion-item>
 
-  <ion-button type="submit" expand="block">Salvati</ion-button>
+  <ion-button type="submit" expand="block" [disabled]="credentials.invalid">Salvati</ion-button>
 
 </form>
 

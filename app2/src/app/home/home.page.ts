@@ -38,33 +38,7 @@ export class HomePage {
     this.router.navigateByUrl('/', {replaceUrl: true});
   }
 
-  async changeImage() {
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: false,
-      resultType: CameraResultType.Base64,
-      source: CameraSource.Photos, //set to photos, but can be changed to Camera/Prompt
-    });
-    console.log(image);
 
-    if (image) {
-      const loading = await this.loadingController.create();
-      await loading.present();
-
-      const result = await this.profilepicService.uploadImage(image);
-      loading.dismiss();
-
-      if (!result) {
-        const alert = await this.alertController.create({
-          header: 'Incarcarea imaginii a esuat',
-          message: 'A aparut o problema in timpul incarcarii imaginii.',
-          buttons: ['OK'],
-        });
-        await alert.present();
-
-      }
-    }
-  }
 
   goSmartMed(){
 
