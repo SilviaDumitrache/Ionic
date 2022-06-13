@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'medical-info',
     loadChildren: () => import('./medical-info/medical-info.module').then( m => m.MedicalInfoPageModule)
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
 
 
 

@@ -69,7 +69,7 @@ export class HomePage {
   }
 
   goChat(){
-
+    this.router.navigateByUrl('chat');
   }
 
   // goProfilMed(){
