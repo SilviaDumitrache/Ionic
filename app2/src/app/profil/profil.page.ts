@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Firestore } from '@angular/fire/firestore';
+import { AuthService } from '../services/auth.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-profil',
@@ -9,7 +12,9 @@ import { Router } from '@angular/router';
 export class ProfilPage implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private firestore: Firestore,
+    private auth: AuthService
   ) { }
 
   ngOnInit() {
@@ -21,4 +26,10 @@ export class ProfilPage implements OnInit {
 
   goToGoogleMaps() {}
 
+
+  // updateUsername() {
+  //   this.user.updateProfile({
+  //     displayName: this.username;
+  //   })
+  // }
 }

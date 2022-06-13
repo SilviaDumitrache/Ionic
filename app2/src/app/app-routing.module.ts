@@ -20,7 +20,11 @@ const routes: Routes = [
 
   { path: 'forgot', loadChildren: () => import('./forgot/forgot.module').then(m => m.ForgotPageModule)},
 
-  { path: 'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilPageModule)},
+  { path: 'profil', loadChildren: () => import('./profil/profil.module').then(m => m.ProfilPageModule)},  {
+    path: 'medical-info',
+    loadChildren: () => import('./medical-info/medical-info.module').then( m => m.MedicalInfoPageModule)
+  },
+
 
 
   // {

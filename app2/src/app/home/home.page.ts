@@ -72,11 +72,15 @@ export class HomePage {
 
   }
 
-  goProfilMed(){
-  }
+  // goProfilMed(){
+  // }
 
   // goProfil(){
   //   this.router.navigateByUrl('profil');
   // }
+
+  async goProfileMed() {
+    this.router.navigateByUrl('/medical-info');
+  };
 
 }
