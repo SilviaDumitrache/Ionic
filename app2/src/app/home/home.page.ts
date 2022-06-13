@@ -12,6 +12,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 })
 export class HomePage {
   profile = null;
+  userinf = null;
 
   constructor(
     private profilepicService: ProfilepicService,
@@ -24,7 +25,12 @@ export class HomePage {
     this.profilepicService.getUserProfile().subscribe((data) => {
       this.profile = data;
     });
+
   }
+
+  // this.ProfilepicService.getUserInfo().subscribe((data) =>{
+  //   this.info = userinf;
+  // })
 
   //logout function
   async logout(){

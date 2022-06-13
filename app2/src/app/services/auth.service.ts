@@ -4,11 +4,18 @@ import { error } from 'console';
 import { sendPasswordResetEmail, signInWithEmailAndPassword, signOut, getAuth, ActionCodeSettings } from 'firebase/auth';
 // import * as firebase from 'firebase';
 
+export interface User{
+  firstName: string;
+  uid: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private user: User;
+
   constructor(private auth: Auth) {}
 
   //function to register a new user in the database
@@ -45,30 +52,11 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-  // async resetPass(email) {
-  //   const user = await sendPasswordResetEmail(this.auth, email)
-  //   .then( () => {
-  //     //password reset email is sent
-  //   })
-  //   // eslint-disable-next-line @typescript-eslint/no-shadow
-  //   .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       //sth
-  //   });
-  // }
+  setUser(user: User){
+    return this.user = user;
+  }
 
-  //reset password function
-  // forgotPass(email: string): Promise<void> {
-    // try {
-    //   const user = sendPasswordResetEmail(this.auth, email);
-    //   return user;
-    // } catch (e) {
-    //   return null;
-    // }
-
-    // return this.auth.sendPasswordResetEmail(email);
-
-    // return sendPasswordResetEmail(this.auth, 'user@example.com', actionCodeSettings);
-
+  getUserUid(): string{
+    return this.user.uid;
+  }
 }

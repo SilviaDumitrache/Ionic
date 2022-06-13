@@ -34,44 +34,46 @@
 
 <ion-content [fullscreen]="true">
 
-  <form>
+  <form [formGroup]="credentials" (ngSubmit)="addData()">
   <ion-list>
-    <ion-item>
+    <ion-item >
       <ion-label>
         <ion-text>Nume</ion-text>
       </ion-label>
-      <ion-input type="text" placeholder="Nume"></ion-input>
+      <ion-input type="text" placeholder="Nume" formControlName="lastName"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label>
-        <ion-text>Preume</ion-text>
+    <!-- <ion-item (click)="updateProfile()"> -->
+      <ion-item>
+       <ion-label>
+        <ion-text>Prenume</ion-text>
       </ion-label>
-      <ion-input type="text" placeholder="Prenume"></ion-input>
+      <ion-input type="text" placeholder="Prenume" formControlName="firstName"></ion-input>
+      <!-- <a alt="firstName"></a> -->
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>
         <ion-text>Email</ion-text>
-      </ion-label>
+      </ion-label> -->
       <!-- this is fetched from the DB -->
       <!-- <ion-input name="name" type="email" placeholder="Email"></ion-input> -->
-    </ion-item>
+    <!-- </ion-item> -->
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>
         <ion-text>Data nasterii</ion-text>
-      </ion-label>
+      </ion-label> -->
       <!-- this is fetched from the DB -->
-      <ion-input type="number" placeholder="Varsta"></ion-input>
-    </ion-item>
+      <!-- <ion-input type="number" placeholder="Varsta"></ion-input>
+    </ion-item> -->
 
     <ion-item>
       <ion-label>
         <ion-text>Varsta</ion-text>
       </ion-label>
       <!-- this is fetched from the DB -->
-      <ion-input type="number" placeholder="Varsta"></ion-input>
+      <ion-input type="text" placeholder="Varsta" formControlName="age"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -79,15 +81,29 @@
         <ion-text>Adresa</ion-text>
       </ion-label>
       <!-- this is fetched from the DB -->
-      <ion-input type="number" placeholder="Adresa"></ion-input>
+      <ion-input type="text" placeholder="Adresa" formControlName="address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-text>Telefon</ion-text>
+      </ion-label>
+      <!-- this is fetched from the DB -->
+      <ion-input type="text" placeholder="Telefon" formControlName="tel"></ion-input>
     </ion-item>
   </ion-list>
 
-  <ion-item>
-    <p>Locatia curenta pe <a (click)="goToGoogleMaps()">Google maps</a>
 
-    </p>
+
+  <ion-item>
+    <!-- <p>Locatia curenta pe <a (click)="goToGoogleMaps()">Google maps</a> -->
+
+    <!-- </p> -->
+
+    <p>Locatia curenta pe <a>Google maps</a></p>
   </ion-item>
+
+  <ion-button type="submit" expand="block">Salvati</ion-button>
 
 </form>
 

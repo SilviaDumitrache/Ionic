@@ -10,6 +10,11 @@ import { Photo } from '@capacitor/camera';
   providedIn: 'root',
 })
 export class ProfilepicService {
+  firstName: string;
+  lastName: string;
+  tel: number;
+  address: string;
+
 
   constructor(
     private auth: Auth,
@@ -42,4 +47,25 @@ export class ProfilepicService {
       return null;
     }
   }
+
+
+
+  //function to upload first Name
+  // async updateFirstName() {
+  //   const user = this.auth.currentUser;
+  //   const userDocRef = doc(this.firestore, `users/${user.uid}`);
+
+  //   if (user) {
+  //     return (await this.auth.)
+  //   }
+
+  // }
+
+  // this.updateProfileForm = new FormGroup({
+  //   'firstName': new FormControl(this.contact.firstName, Validators.required),
+  //   'lastName': new FormControl(this.contact.lastName, Validators.required),
+  //   'email': new FormControl(this.contact.email),
+  //   'phone': new FormControl(this.contact.phone, Validators.required),
+  //   'category': new FormControl(this.contact.category, Validators.required)
+  // });
 }
