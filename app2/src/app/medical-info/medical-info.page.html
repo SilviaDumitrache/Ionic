@@ -15,8 +15,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
 
+  <ion-text class="note">Introduceti informatiile dumneavoastra medicale:</ion-text>
+
+  <form [formGroup]="infoMed" (ngSubmit)="addData()">
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset-md="1">
@@ -29,12 +32,12 @@
     <ion-card-content>
     <ion-item color="rosybrown">
     <ion-label position="stacked">Ce afectiuni medicale au avut parintii?</ion-label>
-    <ion-input clearInput  type="text"></ion-input>
+    <ion-input clearInput  type="text" formControlName="afectiuniParinti"></ion-input>
   </ion-item>
 
   <ion-item color="rosybrown">
     <ion-label position="stacked">Ce afectiuni medicale au avut fratii/surorile?</ion-label>
-    <ion-input clearInput type="text"></ion-input>
+    <ion-input clearInput type="text" formControlName="afectiuniFrati"></ion-input>
   </ion-item>
   </ion-card-content>
   </ion-card>
@@ -49,12 +52,12 @@
   <ion-card-content>
   <ion-item color="rosybrown">
   <ion-label position="stacked">De ce afectiuni medicale suferiti?</ion-label>
-  <ion-input clearInput  type="text"></ion-input>
+  <ion-input clearInput  type="text" formControlName="afectiuniProprii"></ion-input>
 </ion-item>
 
 <ion-item color="rosybrown">
   <ion-label position="stacked">De cat timp?</ion-label>
-  <ion-input clearInput type="text"></ion-input>
+  <ion-input clearInput type="text" formControlName="deCatTimp"></ion-input>
 </ion-item>
 </ion-card-content>
 </ion-card>
@@ -68,7 +71,7 @@
   <ion-item color="rosybrown">
   <ion-label position="stacked">Ati lucrat in mediu toxic?</ion-label>
   <!-- <ion-input clearInput  type="text"></ion-input> -->
-  <ion-select placeholder="Selectati raspunsul" okText="Seteaza" cancelText="Anuleaza">
+  <ion-select placeholder="Selectati raspunsul" okText="Seteaza" cancelText="Anuleaza" formControlName="mediuToxic">
     <ion-select-option value="da">Da</ion-select-option>
     <ion-select-option value="nu">Nu</ion-select-option>
   </ion-select>
@@ -86,7 +89,7 @@
   <ion-item color="rosybrown">
   <ion-label position="stacked">Consum de alcol</ion-label>
   <!-- <ion-input clearInput  type="text"></ion-input> -->
-  <ion-select placeholder="Selectati raspunsul" okText="Seteaza" cancelText="Anuleaza">
+  <ion-select placeholder="Selectati raspunsul" okText="Seteaza" cancelText="Anuleaza" formControlName="consumAlcool">
     <ion-select-option value="da">Da</ion-select-option>
     <ion-select-option value="nu">Nu</ion-select-option>
   </ion-select>
@@ -95,7 +98,7 @@
 <ion-item color="rosybrown">
   <ion-label position="stacked">Consum de tutun</ion-label>
   <!-- <ion-input clearInput  type="text"></ion-input> -->
-  <ion-select placeholder="Selectati raspunsul" okText="Seteaza" cancelText="Anuleaza">
+  <ion-select placeholder="Selectati raspunsul" okText="Seteaza" cancelText="Anuleaza" formControlName="consumTutun">
     <ion-select-option value="da">Da</ion-select-option>
     <ion-select-option value="nu">Nu</ion-select-option>
   </ion-select>
@@ -112,12 +115,12 @@
   <ion-card-content>
   <ion-item color="rosybrown">
   <ion-label position="stacked">Alergii alimentare</ion-label>
-  <ion-input clearInput  type="text"></ion-input>
+  <ion-input clearInput  type="text" formControlName="alergiiAlimentare"></ion-input>
 </ion-item>
 
 <ion-item color="rosybrown">
   <ion-label position="stacked">Alergii medicamentoase</ion-label>
-  <ion-input clearInput type="text"></ion-input>
+  <ion-input clearInput type="text" formControlName="alergiiMedicamentoase"></ion-input>
 </ion-item>
 </ion-card-content>
 </ion-card>
@@ -127,4 +130,7 @@
 </ion-row>
 </ion-grid>
 
+<ion-button type="submit" expand="block" [disabled]="infoMed.invalid">Salvati</ion-button>
+
+</form>
 </ion-content>
