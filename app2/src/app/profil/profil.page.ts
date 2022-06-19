@@ -7,7 +7,7 @@ import { ProfilService } from '../services/profil.service';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { getApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, doc, setDoc} from 'firebase/firestore';
+import { getFirestore, collection, addDoc, doc, setDoc, updateDoc} from 'firebase/firestore';
 import { Auth } from '@angular/fire/auth';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { ProfilepicService } from '../services/profilepic.service';
@@ -106,13 +106,14 @@ export class ProfilPage implements OnInit{
     const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
     const user = this.auth.currentUser;
-    const currentUserDoc = doc(db, `users/${user.uid}/profile/info`);
+    const currentUserDoc = doc(db, `users/${user.uid}`);
     // const path = 'uploads/'
 
     // const profileCollection = collection(db, `users/${user.uid}/profil`);
     // `users/${user.uid}`
 
-    setDoc(currentUserDoc, this.credentials.value);
+    updateDoc(currentUserDoc, this.credentials.value);
+    console.log(this.credentials.value);
     const alert = await this.alertCtrl.create({
           header: 'Operatiune incheiata.',
           message: 'Profilul a fost modificat cu success.',

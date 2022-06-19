@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'secret',
     loadChildren: () => import('./secret/secret.module').then( m => m.SecretPageModule)
   },
+  {
+    path: 'chat1',
+    loadChildren: () => import('./chat1/chat1.module').then( m => m.Chat1PageModule)
+  },
 
 
 

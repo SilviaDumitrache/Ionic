@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="rosybrown">
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-footer>
+    <ion-toolbar color="light"></ion-toolbar>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="2">
+        <ion-textarea autoGrow="true" class="message-input" rows="1" maxlength="500" [(ngModel)]="newMsg">
+        </ion-textarea>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="rosybrown" [disabled]="newMsg === ''"
+                    class="msg-btn" (click)="sendMessage()">
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</ion-content>

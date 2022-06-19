@@ -67,7 +67,7 @@ export class RegisterPage implements OnInit {
     this.router.navigateByUrl('/login', {replaceUrl: true});
     this.showAlert('Cont creat cu success', 'Mergeti la pagina de logare');
   }  else {
-    //comment and un-comment for presentation
+    // comment and un-comment for presentation
     this.showAlert('Crearea unui nou cont a esuat.', 'Va rugam, incercati din nou.');
   }
   }

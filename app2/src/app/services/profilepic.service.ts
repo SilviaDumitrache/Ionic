@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
+import { doc, docData, Firestore, setDoc, updateDoc } from '@angular/fire/firestore';
 import { Storage, ref, getDownloadURL, uploadString } from '@angular/fire/storage';
 import { Photo } from '@capacitor/camera';
 
@@ -39,7 +39,7 @@ export class ProfilepicService {
       const imageUrl = await getDownloadURL(storageRef);
 
       const userDocRef = doc(this.firestore, `users/${user.uid}`);
-      await setDoc(userDocRef, {
+      await updateDoc(userDocRef, {
         imageUrl,
       });
       return true;

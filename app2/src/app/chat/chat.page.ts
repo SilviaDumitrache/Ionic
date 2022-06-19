@@ -19,4 +19,8 @@ export class ChatPage implements OnInit {
     this.router.navigateByUrl('/home');
   };
 
+  goChat1() {
+    this.router.navigateByUrl('/chat1');
+  }
+
 }
