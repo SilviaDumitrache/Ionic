@@ -15,6 +15,8 @@ import { Capacitor } from '@capacitor/core';
 import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
 import { getApp } from 'firebase/app';
 
+// import {googlemaps} from 'googlemaps';
+
 // importarea plugin-urilor pentru geolocatia
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';

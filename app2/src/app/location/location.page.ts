@@ -75,6 +75,7 @@ export class LocationPage implements OnInit{
 
   ///navigate to the Google Maps page
   goMap(){
+    this.router.navigateByUrl('/map');
 
   }
 
