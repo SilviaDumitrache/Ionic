@@ -63,4 +63,8 @@ export class HomePage {
     this.router.navigateByUrl('/medical-info');
   };
 
+  goLocatie() {
+    this.router.navigateByUrl('/location');
+  }
+
 }

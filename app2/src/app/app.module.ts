@@ -15,6 +15,10 @@ import { Capacitor } from '@capacitor/core';
 import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
 import { getApp } from 'firebase/app';
 
+// importarea plugin-urilor pentru geolocatia
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,7 +38,10 @@ import { getApp } from 'firebase/app';
     }),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    Geolocation,
+    NativeGeocoder,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

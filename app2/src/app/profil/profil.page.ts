@@ -11,6 +11,7 @@ import { getFirestore, collection, addDoc, doc, setDoc, updateDoc} from 'firebas
 import { Auth } from '@angular/fire/auth';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { ProfilepicService } from '../services/profilepic.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 @Component({
@@ -148,6 +149,10 @@ export class ProfilPage implements OnInit{
 
       }
     }
+  }
+
+  goLocation() {
+    this.router.navigateByUrl('location');
   }
 
 }
