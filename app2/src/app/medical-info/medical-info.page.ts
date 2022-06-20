@@ -102,7 +102,7 @@ export class MedicalInfoPage implements OnInit {
 
   //functia care incarca in Firebase informatiile medicale introduse de utilizator
 async addData(): Promise<void> {
-  const firebaseApp = getApp();
+    const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
     const user = this.auth.currentUser;
     const currentUserDoc = doc(db, `users/${user.uid}`);
