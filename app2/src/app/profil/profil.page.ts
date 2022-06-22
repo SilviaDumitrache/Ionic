@@ -11,7 +11,8 @@ import { getFirestore, collection, addDoc, doc, setDoc, updateDoc} from 'firebas
 import { Auth } from '@angular/fire/auth';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { ProfilepicService } from '../services/profilepic.service';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+// import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
 
 
 @Component({
@@ -38,13 +39,15 @@ export class ProfilPage implements OnInit{
     private auth: Auth,
     private loadingController: LoadingController,
     private profilepicService: ProfilepicService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private storage: Storage
 
     )
     {
-    //   this.profileService.getuserInfo().subscribe((data) => {
-    //   this.profile = data;
-    // });
+      this.profileService.getuserInfo().subscribe((data) => {
+      this.profile = data;
+    }
+);
 
 
 
@@ -76,11 +79,11 @@ export class ProfilPage implements OnInit{
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      firstName: ['', Validators.required, Validators.maxLength(15)],
-      lastName: ['', Validators.required, Validators.maxLength(15)],
-      age: ['', Validators.required, Validators.minLength(2)],
-      address: ['', Validators.required, Validators.maxLength(25)],
-      tel: ['', Validators.required, Validators.maxLength(10)],
+      firstName: ['', [Validators.required, Validators.maxLength(15)]],
+      lastName: ['', [Validators.required, Validators.maxLength(15)]],
+      age: ['',[ Validators.required, Validators.minLength(2)]],
+      address: ['', [Validators.required, Validators.maxLength(25)]],
+      tel: ['', [Validators.required, Validators.maxLength(10)]],
       // imageUrl: ['']
     });
   }
@@ -108,6 +111,7 @@ export class ProfilPage implements OnInit{
     const db = getFirestore(firebaseApp);
     const user = this.auth.currentUser;
     const currentUserDoc = doc(db, `users/${user.uid}`);
+    const storageRef = ref(this.storage, `users/${user.uid}`);
     // const path = 'uploads/'
 
     // const profileCollection = collection(db, `users/${user.uid}/profil`);
@@ -120,6 +124,14 @@ export class ProfilPage implements OnInit{
           message: 'Profilul a fost modificat cu success.',
           buttons: ['OK'],
         });
+
+    // if (this.credentials) {
+      // const loading = await this.loadingController.create();
+      // await loading.present();
+      // return this.credentials = await getDownloadURL(storageRef);
+    // }
+
+
 
   }
 

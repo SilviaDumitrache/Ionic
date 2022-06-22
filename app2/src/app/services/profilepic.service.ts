@@ -28,6 +28,10 @@ export class ProfilepicService {
     return docData(userDocRef, {idField: 'id'});
   }
 
+  getUserI(){
+
+  }
+
   async uploadImage(cameraFile: Photo) {
     const user = this.auth.currentUser;
     const path = `uploads/${user.uid}/profile.png`;
@@ -39,7 +43,8 @@ export class ProfilepicService {
       const imageUrl = await getDownloadURL(storageRef);
 
       const userDocRef = doc(this.firestore, `users/${user.uid}`);
-      await updateDoc(userDocRef, {
+      // updateDoc
+      await setDoc(userDocRef, {
         imageUrl,
       });
       return true;
