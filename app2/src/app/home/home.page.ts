@@ -70,7 +70,8 @@ export class HomePage implements OnInit{
 
   }
 
-  goProgramare(){
+  goComm(){
+    this.router.navigateByUrl('/comm');
 
   }
 

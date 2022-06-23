@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="rosybrown">
+
+    <ion-buttons>
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+
+    <ion-title>Comunicare</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6" >
+        <!-- <ion-card text-center padding (click)="goProfil()"> -->
+          <ion-card text-center padding>
+          <ion-card-title>Medic</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="call-outline" class="icon1" (click)="callMed(0768657944)"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" >
+        <ion-card text-center padding>
+          <ion-card-title>Insotitor</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="call-outline"  class="icon4" (click)="callMed(0768657944)"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- <ion-col size="6" > -->
+        <!-- <ion-card text-center padding (click)="goProfil()"> -->
+          <!-- <ion-card text-center padding>
+          <ion-card-title>Medic</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="call-outline" class="icon1"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col> -->
+
+      <!-- <ion-col size="6" >
+        <ion-card text-center padding>
+          <ion-card-title>Insotitor</ion-card-title>
+          <ion-card-content>
+            <ion-icon name="call-outline"  class="icon4"></ion-icon>
+          </ion-card-content>
+        </ion-card>
+      </ion-col> -->
+
+
+
+      </ion-row>
+      </ion-grid>
+
+      <ion-button expand="full" type="submit">Alertati prin SMS</ion-button>
+      <p></p>
+      <ion-button expand="full" type="submit">Chat</ion-button>
+
+</ion-content>
