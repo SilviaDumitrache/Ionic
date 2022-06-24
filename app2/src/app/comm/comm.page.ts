@@ -42,6 +42,7 @@ export class CommPage implements OnInit {
       // }
 
 
+      //apelarea unui nr din interfata grafica
     callMed(number) {
       this.callNumber.callNumber(number, true)
       .then(res => console.log('Apelul a fost initiat', res))
@@ -56,6 +57,12 @@ export class CommPage implements OnInit {
 
       // sendSMS(contacts: Contact)
 
+      //trimiterea unei alerte prin sms
+      alertSMS() {
+        this.sms.send('0768657944','Alerta din aplicatia IONIC!');
+      }
+
+
   ngOnInit() {
   }
 
@@ -63,4 +70,9 @@ export class CommPage implements OnInit {
     this.router.navigateByUrl('/home');
   };
 
+  goChat() {
+    this.router.navigateByUrl('/chat1');
+  }
+
 }
+
