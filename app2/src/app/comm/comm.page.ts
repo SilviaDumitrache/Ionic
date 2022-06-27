@@ -5,7 +5,7 @@ import { Contacts } from '@ionic-native/contacts';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { ToastController } from '@ionic/angular';
 import { SMS } from '@ionic-native/sms/ngx';
-
+// import { SMS } from '@ionic-native';
 @Component({
   selector: 'app-comm',
   templateUrl: './comm.page.html',
@@ -14,6 +14,8 @@ import { SMS } from '@ionic-native/sms/ngx';
 export class CommPage implements OnInit {
   contactNumber: void;
   contactName: string;
+  telNumber='0768657944';
+  telInsotitor='0761890465';
 
   constructor(
     private router: Router,
@@ -43,27 +45,36 @@ export class CommPage implements OnInit {
 
 
       //apelarea unui nr din interfata grafica
-    callMed(number) {
-      this.callNumber.callNumber(number, true)
-      .then(res => console.log('Apelul a fost initiat', res))
-      .catch(err => console.log('Eroare la apelare', err));
-    }
+    // callMed(number) {
+    //   this.callNumber.callNumber(number, true)
+    //   .then(res => console.log('Apelul a fost initiat', res))
+    //   .catch(err => console.log('Eroare la apelare', err));
+    // }
 
-      callIns(number) {
-        this.callNumber.callNumber(number, true)
-        .then(res => console.log('Apelul a fost initiat', res))
-        .catch(err => console.log('Eroare la apelare', err));
+
+callMed() {
+  this.callNumber.callNumber(this.telNumber, true);
+}
+
+      callIns() {
+        this.callNumber.callNumber(this.telNumber, true);
       }
 
       // sendSMS(contacts: Contact)
 
       //trimiterea unei alerte prin sms
-      alertSMS() {
-        this.sms.send('0768657944','Alerta din aplicatia IONIC!');
+      // alertSMS() {
+      //   this.sms.send(this.telNumber,'Alerta din aplicatia IONIC!');
+      // }
+
+
+      async alertSMS() {
+          await this.sms.send(this.telNumber, 'Alerta din aplicatia IONIC!');
+
       }
 
-
   ngOnInit() {
+    // this.callNumber.callNumber(this.telNumber, true);
   }
 
   goBack() {
