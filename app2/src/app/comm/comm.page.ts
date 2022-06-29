@@ -63,15 +63,15 @@ callMed() {
       // sendSMS(contacts: Contact)
 
       //trimiterea unei alerte prin sms
-      // alertSMS() {
-      //   this.sms.send(this.telNumber,'Alerta din aplicatia IONIC!');
-      // }
-
-
-      async alertSMS() {
-          await this.sms.send(this.telNumber, 'Alerta din aplicatia IONIC!');
-
+      alertSMS() {
+        this.sms.send(this.telNumber,'Alerta din aplicatia IONIC!');
       }
+
+
+      // async alertSMS() {
+      //     await this.sms.send(this.telNumber, 'Alerta din aplicatia IONIC!');
+
+      // }
 
   ngOnInit() {
     // this.callNumber.callNumber(this.telNumber, true);
